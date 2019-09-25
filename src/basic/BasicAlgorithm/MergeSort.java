@@ -38,10 +38,27 @@ public class MergeSort {
             if(data[leftStart] < data[rightStart]){         //왼쪽 배열의 원소가 작을 경우
                 tmpArray[tmpIndex] = data[leftStart];
                 leftStart++;
-            }else{
+            }else{                                          //오른쪽 배열의 원소가 작을 경우
                 tmpArray[tmpIndex] = data[rightStart];
-
+                rightStart++;
             }
+            tmpIndex ++;
+        }
+
+        while (leftStart <= middle){        //왼쪽배열에 아직 원소가 남은경우
+            tmpArray[tmpIndex] = data[leftStart];
+            leftStart ++;
+            tmpIndex++;
+        }
+
+        while(rightStart <= last){          //오른쪽 배열에 원소가 남은경우
+            tmpArray[tmpIndex] = data[rightStart];
+            rightStart++;
+            tmpIndex++;
+        }
+
+        for(int i =0; i<=last; i++){
+            data[i] = tmpArray[i];
         }
     }
 }
