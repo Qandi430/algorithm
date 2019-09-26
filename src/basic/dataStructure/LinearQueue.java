@@ -62,4 +62,8 @@ public class LinearQueue {
         System.out.println(linearQueue.deQueue());
         System.out.println(linearQueue.deQueue());
     }
+
+    public int getRear(){
+        return this.rear;
+    }
 }
