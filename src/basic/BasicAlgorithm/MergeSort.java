@@ -18,7 +18,22 @@ public class MergeSort {
      *
      */
 
-    public int[] mergeSort(int[] data,int first, int last){
+    public static void main(String[] args){
+        int[] array = {5,2,4,7,6,1,3,8};
+        int[] result = mergeSort(array,0,array.length -1);
+
+        for(int r : array){
+            System.out.print(r+", ");
+        }
+    }
+
+    public static int[] mergeSort(int[] data, int first, int last){
+        System.out.print("first : "+first);
+        System.out.print(" data : ");
+        for(int d : data){
+            System.out.print(d+" ");
+        }
+        System.out.println(" last : "+last+"\n");
         if(last>first){
             int middle = (first+last)/2;
             mergeSort(data,first,middle);
@@ -28,7 +43,7 @@ public class MergeSort {
         return data;
     }
 
-    public void sort(int[] data,int first,int middle,int last){
+    public static void sort(int[] data,int first,int middle,int last){
         int[] tmpArray = new int[10]; //합병 정렬 임시 저장
         int leftStart = first;        //분열된 왼쪽배열 시작
         int tmpIndex = first;         //합병되는 배열의 시작
@@ -57,7 +72,7 @@ public class MergeSort {
             tmpIndex++;
         }
 
-        for(int i =0; i<=last; i++){
+        for(int i =first; i<=last; i++){
             data[i] = tmpArray[i];
         }
     }

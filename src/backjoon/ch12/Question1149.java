@@ -9,7 +9,8 @@ public class Question1149 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int numOfHouse = Integer.parseInt(br.readLine());
         int[][] house = new int[numOfHouse][3];
-        int index=0,min = 0,result = 0,minIndex = 0;
+        int[] costArray = new int[3];
+        int index=0,min = 0,result = 0,currIndex = 0;
 
         for(int i = 0; i<numOfHouse; i++){
             String price = br.readLine();
@@ -18,27 +19,27 @@ public class Question1149 {
             house[i][2] = Integer.parseInt(price.split(" ")[2]);
         }
 
-        while(index < numOfHouse){
-            min = 1000;
-            for(int i = 0; i<3; i++){
-                if(index != 0){
-                    if(i == minIndex) continue;
-                }
-                if(i==0){
-                    min = house[index][i];
-                    minIndex = 0;
-                }else{
-                    if(house[index][i] < min){
-                        min = house[index][i];
-                        minIndex = i;
-                    }
-                }
+        for(int i = 0; i< 3; i++){
+            result = house[0][i];
+            currIndex = i;
+            for(int j = 1; j<numOfHouse; j++){
+                min = getMin(house[j],currIndex);
+                result += house[j][min];
+                currIndex = min;
             }
-            result += min;
-
-            index ++;
+            costArray[i] = result;
         }
 
-        System.out.println(result);
+        for(int a : costArray){
+            System.out.println(a);
+        }
+
+        System.out.println(costArray[getMin(costArray,3)]);
+    }
+
+    private static int getMin(int[] house, int index) {
+        if(index == 0) return house[1] < house[2] ? 1:2;
+        else if(index == 1) return house[0] < house[2] ? 0:2;
+        else return house[0] < house[1] ? 0:1;
     }
 }

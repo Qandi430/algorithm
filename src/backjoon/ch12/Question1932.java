@@ -10,6 +10,10 @@ public class Question1932 {
 
         int height = Integer.parseInt(br.readLine());
         int[][] triangle = new int[height][height];
+        int result = 0;
+        int current = 0;
+        int left,right;
+        int index = 0;
 
         for(int i = 0; i<height; i++){
             String[] input = br.readLine().split(" ");
@@ -18,11 +22,8 @@ public class Question1932 {
             }
         }
 
-        for(int i = 0; i<height; i++){
-            for(int a : triangle[i]){
-                System.out.print(a+" ");
-            }
-            System.out.println();
+        while(index == height){
+
         }
     }
 }
