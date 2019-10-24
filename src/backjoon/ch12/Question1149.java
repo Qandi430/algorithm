@@ -30,10 +30,6 @@ public class Question1149 {
             costArray[i] = result;
         }
 
-        for(int a : costArray){
-            System.out.println(a);
-        }
-
         System.out.println(costArray[getMin(costArray,3)]);
     }
 

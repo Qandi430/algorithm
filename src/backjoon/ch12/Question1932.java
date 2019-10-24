@@ -9,21 +9,19 @@ public class Question1932 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int height = Integer.parseInt(br.readLine());
-        int[][] triangle = new int[height][height];
-        int result = 0;
-        int current = 0;
-        int left,right;
-        int index = 0;
-
+        String[] triangle = new String[height];
+        int index = 1;
+        int answer = Integer.parseInt(triangle[0]);
+        int answer2 = Integer.parseInt(triangle[0]);
         for(int i = 0; i<height; i++){
-            String[] input = br.readLine().split(" ");
-            for(int j = 0; j<input.length; j++){
-                triangle[i][j] = Integer.parseInt(input[j]);
-            }
+            triangle[i] = br.readLine();
         }
 
-        while(index == height){
+        while (index < height){
+            if(index > 2){
 
+            }
+            index ++;
         }
     }
 }
